@@ -77,6 +77,7 @@ public class PanelCuadradosRedondeados extends JPanel {
 
     public void actualizarColores(boolean[][] tablero, JPanel panel) {
         for (int i = 0; i < tablero.length; i++) {
+
             for (int j = 0; j < tablero[0].length; j++) {
 
                 if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
@@ -93,5 +94,4 @@ public class PanelCuadradosRedondeados extends JPanel {
         panel.revalidate();
         panel.repaint();
     }
-
 }

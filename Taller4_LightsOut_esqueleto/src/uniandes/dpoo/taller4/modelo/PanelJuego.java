@@ -47,6 +47,7 @@ public class PanelJuego extends JFrame implements ActionListener {
 
         panelOesteCentro2 = new JPanel();
         setVisible(true);
+        setSize(600, 600);
         panelOesteCentro2.setBackground(Color.BLACK);
         add(panelOesteCentro2, BorderLayout.CENTER);
 
@@ -58,7 +59,7 @@ public class PanelJuego extends JFrame implements ActionListener {
         panelSur.setLayout(new FlowLayout(FlowLayout.CENTER));
         panelSur.setBackground(Color.BLUE.darker());
         panel = new PanelCuadradosRedondeados(tamanioActual, tamanioActual);
-        
+
         tableroActivo.desordenar(dificultad);
         labelJugadas = new JLabel("Jugadas: ");
         labelJugadas.setForeground(Color.WHITE);
@@ -72,10 +73,9 @@ public class PanelJuego extends JFrame implements ActionListener {
         panelSur.add(labelJugador);
 
         add(panelSur, BorderLayout.SOUTH);
-        
+
         panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
         panel.actualizarColores(tableroActivo.darTablero(), panel);
-        
 
         comboBoxTamano.addActionListener(new ActionListener() {
             @Override
@@ -85,25 +85,28 @@ public class PanelJuego extends JFrame implements ActionListener {
                 System.out.println("Tamanio seleccionado: " + tamanoSeleccionado);
                 if (tamanoSeleccionado.equals("4x4")) {
                     tamanioActual = 4;
-                    panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual,tableroActivo);
+                    panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual,
+                            tableroActivo);
                     tableroActivo = new Tablero(tamanioActual);
                     tableroActivo.desordenar(dificultad);
                     panel.actualizarColores(tableroActivo.darTablero(), panel);
-                    
+
                 } else if (tamanoSeleccionado.equals("5x5")) {
                     tamanioActual = 5;
-                    panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual,tableroActivo);
+                    panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual,
+                            tableroActivo);
                     tableroActivo = new Tablero(tamanioActual);
                     tableroActivo.desordenar(dificultad);
                     panel.actualizarColores(tableroActivo.darTablero(), panel);
-                   
+
                 } else {
                     tamanioActual = 3;
-                    panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual,tableroActivo);
+                    panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual,
+                            tableroActivo);
                     tableroActivo = new Tablero(tamanioActual);
                     tableroActivo.desordenar(dificultad);
                     panel.actualizarColores(tableroActivo.darTablero(), panel);
-                    
+
                 }
             }
         });
@@ -170,21 +173,15 @@ public class PanelJuego extends JFrame implements ActionListener {
         add(panelEste, BorderLayout.EAST);
 
         // Panel Sur con labels
-      
-        
-    }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            PanelJuego panelJuego = new PanelJuego();
-        });
     }
 
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == buttonTop10) {
             System.out.println("Top 10");
-            TOP10.cargarRecords(obtenerArchivo("C:/Users/ASUS/OneDrive/Documentos/Uniandes/Taller4_LightsOut_esqueletoV1/Taller4_LightsOut_esqueleto/data/top10.csv"));
+            TOP10.cargarRecords(obtenerArchivo(
+                    "C:/Users/ASUS/OneDrive/Documentos/Uniandes/Taller4_LightsOut_esqueletoV1/Taller4_LightsOut_esqueleto/data/top10.csv"));
             JPanel top10 = disenartop10(TOP10.darRegistros());
             JOptionPane.showMessageDialog(null, top10, "Top-10", JOptionPane.PLAIN_MESSAGE);
         } else if (e.getSource() == buttonCambiarJugador) {
@@ -199,7 +196,11 @@ public class PanelJuego extends JFrame implements ActionListener {
             tableroActivo = new Tablero(tamanioActual);
             tableroActivo.desordenar(dificultad);
             panel.actualizarColores(tableroActivo.darTablero(), panel);
-            
+
+            panelOesteCentro2.removeAll();
+            PanelWest pan = new PanelWest(3);
+            panelOesteCentro2.add(pan);
+
         } else if (e.getSource() == radioButtonFacil) {
             System.out.println("Facil");
             dificultad = 5;
