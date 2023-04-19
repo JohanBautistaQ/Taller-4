@@ -184,7 +184,7 @@ public class PanelJuego extends JFrame implements ActionListener {
 
         if (e.getSource() == buttonTop10) {
             System.out.println("Top 10");
-            TOP10.cargarRecords(obtenerArchivo("Taller4_LightsOut_esqueletoV1/Taller4_LightsOut_esqueleto/data/top10.csv"));
+            TOP10.cargarRecords(obtenerArchivo("C:/Users/ASUS/OneDrive/Documentos/Uniandes/Taller4_LightsOut_esqueletoV1/Taller4_LightsOut_esqueleto/data/top10.csv"));
             JPanel top10 = disenartop10(TOP10.darRegistros());
             JOptionPane.showMessageDialog(null, top10, "Top-10", JOptionPane.INFORMATION_MESSAGE);
         } else if (e.getSource() == buttonCambiarJugador) {
