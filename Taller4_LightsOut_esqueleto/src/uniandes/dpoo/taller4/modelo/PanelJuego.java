@@ -186,7 +186,7 @@ public class PanelJuego extends JFrame implements ActionListener {
             System.out.println("Top 10");
             TOP10.cargarRecords(obtenerArchivo("C:/Users/ASUS/OneDrive/Documentos/Uniandes/Taller4_LightsOut_esqueletoV1/Taller4_LightsOut_esqueleto/data/top10.csv"));
             JPanel top10 = disenartop10(TOP10.darRegistros());
-            JOptionPane.showMessageDialog(null, top10, "Top-10", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, top10, "Top-10", JOptionPane.PLAIN_MESSAGE);
         } else if (e.getSource() == buttonCambiarJugador) {
             System.out.println("Cambiar");
         } else if (e.getSource() == buttonReiniciar) {
@@ -200,13 +200,25 @@ public class PanelJuego extends JFrame implements ActionListener {
             
         } else if (e.getSource() == radioButtonFacil) {
             System.out.println("Facil");
-            dificultad = 1;
+            dificultad = 5;
+            panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
+            tableroActivo = new Tablero(tamanioActual);
+            tableroActivo.desordenar(dificultad);
+            panel.actualizarColores(tableroActivo.darTablero(), panel);
         } else if (e.getSource() == radioButtonMedio) {
             System.out.println("Medio");
-            dificultad = 2;
+            dificultad = 10;
+            panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
+            tableroActivo = new Tablero(tamanioActual);
+            tableroActivo.desordenar(dificultad);
+            panel.actualizarColores(tableroActivo.darTablero(), panel);
         } else if (e.getSource() == radioButtonDificil) {
             System.out.println("Dificil");
-            dificultad = 3;
+            dificultad = 15;
+            panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
+            tableroActivo = new Tablero(tamanioActual);
+            tableroActivo.desordenar(dificultad);
+            panel.actualizarColores(tableroActivo.darTablero(), panel);
         }
     }
 

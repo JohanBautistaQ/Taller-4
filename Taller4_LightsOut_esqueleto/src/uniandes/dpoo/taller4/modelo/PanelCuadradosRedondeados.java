@@ -69,6 +69,7 @@ public class PanelCuadradosRedondeados extends JPanel {
                 System.out.println("" + tableroActual.darJugadas());
                 // casilla.cambiarColor();
                 actualizarColores(tableroActual.darTablero(), panel);
+                casilla.cambiarColor();
 
             }
         });
