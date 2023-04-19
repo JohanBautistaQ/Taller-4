@@ -197,10 +197,6 @@ public class PanelJuego extends JFrame implements ActionListener {
             tableroActivo.desordenar(dificultad);
             panel.actualizarColores(tableroActivo.darTablero(), panel);
 
-            panelOesteCentro2.removeAll();
-            PanelWest pan = new PanelWest(3);
-            panelOesteCentro2.add(pan);
-
         } else if (e.getSource() == radioButtonFacil) {
             System.out.println("Facil");
             dificultad = 5;
