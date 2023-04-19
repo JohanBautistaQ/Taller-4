@@ -191,6 +191,8 @@ public class PanelJuego extends JFrame implements ActionListener {
             System.out.println("Cambiar");
         } else if (e.getSource() == buttonReiniciar) {
             System.out.println("Reiniciar");
+            tableroActivo.reiniciar();
+            panel.actualizarColores(tableroActivo.darTablero(), panel);
         } else if (e.getSource() == buttonNuevo) {
             System.out.println("nuevo");
             panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);

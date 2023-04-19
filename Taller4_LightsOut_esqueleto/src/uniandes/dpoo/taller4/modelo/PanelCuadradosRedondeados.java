@@ -63,9 +63,9 @@ public class PanelCuadradosRedondeados extends JPanel {
                 String[] partes = Location.split("-");
 
                 // Obtener los valores de i y j como enteros
-                int fila = Integer.parseInt(partes[0]);
-                int colunma = Integer.parseInt(partes[1]);
-                tableroActual.jugar(fila, colunma);
+                int fila2 = Integer.parseInt(partes[1]);
+                int colunma2 = Integer.parseInt(partes[0]);
+                tableroActual.jugar(fila2, colunma2);
                 System.out.println("" + tableroActual.darJugadas());
                 // casilla.cambiarColor();
                 actualizarColores(tableroActual.darTablero(), panel);
