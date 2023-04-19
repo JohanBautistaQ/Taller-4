@@ -84,7 +84,7 @@ public class PanelCuadradosRedondeados extends JPanel {
                     if (col[i][j] && matriz[i][j] != null) {
                         matriz[i][j].cambiarColor();
                     } else {
-                        System.out.println("prueba actual");
+                        //System.out.println("prueba actual");
                     }
                 }
 
