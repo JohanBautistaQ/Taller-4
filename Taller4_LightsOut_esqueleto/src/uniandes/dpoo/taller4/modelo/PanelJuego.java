@@ -75,7 +75,7 @@ public class PanelJuego extends JFrame implements ActionListener {
         add(panelSur, BorderLayout.SOUTH);
 
         panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
-        panel.actualizarColores(tableroActivo.darTablero(), panel);
+        panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
 
         comboBoxTamano.addActionListener(new ActionListener() {
             @Override
@@ -89,7 +89,7 @@ public class PanelJuego extends JFrame implements ActionListener {
                             tableroActivo);
                     tableroActivo = new Tablero(tamanioActual);
                     tableroActivo.desordenar(dificultad);
-                    panel.actualizarColores(tableroActivo.darTablero(), panel);
+                    panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
 
                 } else if (tamanoSeleccionado.equals("5x5")) {
                     tamanioActual = 5;
@@ -97,7 +97,7 @@ public class PanelJuego extends JFrame implements ActionListener {
                             tableroActivo);
                     tableroActivo = new Tablero(tamanioActual);
                     tableroActivo.desordenar(dificultad);
-                    panel.actualizarColores(tableroActivo.darTablero(), panel);
+                    panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
 
                 } else {
                     tamanioActual = 3;
@@ -105,7 +105,7 @@ public class PanelJuego extends JFrame implements ActionListener {
                             tableroActivo);
                     tableroActivo = new Tablero(tamanioActual);
                     tableroActivo.desordenar(dificultad);
-                    panel.actualizarColores(tableroActivo.darTablero(), panel);
+                    panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
 
                 }
             }
@@ -189,13 +189,13 @@ public class PanelJuego extends JFrame implements ActionListener {
         } else if (e.getSource() == buttonReiniciar) {
             System.out.println("Reiniciar");
             tableroActivo.reiniciar();
-            panel.actualizarColores(tableroActivo.darTablero(), panel);
+            panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
         } else if (e.getSource() == buttonNuevo) {
             System.out.println("nuevo");
             panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
             tableroActivo = new Tablero(tamanioActual);
             tableroActivo.desordenar(dificultad);
-            panel.actualizarColores(tableroActivo.darTablero(), panel);
+            panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
 
         } else if (e.getSource() == radioButtonFacil) {
             System.out.println("Facil");
@@ -203,21 +203,21 @@ public class PanelJuego extends JFrame implements ActionListener {
             panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
             tableroActivo = new Tablero(tamanioActual);
             tableroActivo.desordenar(dificultad);
-            panel.actualizarColores(tableroActivo.darTablero(), panel);
+            panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
         } else if (e.getSource() == radioButtonMedio) {
             System.out.println("Medio");
             dificultad = 10;
             panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
             tableroActivo = new Tablero(tamanioActual);
             tableroActivo.desordenar(dificultad);
-            panel.actualizarColores(tableroActivo.darTablero(), panel);
+            panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
         } else if (e.getSource() == radioButtonDificil) {
             System.out.println("Dificil");
             dificultad = 15;
             panel.crearNuevaMatriz(labelJugadasint, panelOesteCentro2, tamanioActual, tamanioActual, tableroActivo);
             tableroActivo = new Tablero(tamanioActual);
             tableroActivo.desordenar(dificultad);
-            panel.actualizarColores(tableroActivo.darTablero(), panel);
+            panel.actualizarColores(tableroActivo.darTablero(), panel, labelJugadasint);
         }
     }
 

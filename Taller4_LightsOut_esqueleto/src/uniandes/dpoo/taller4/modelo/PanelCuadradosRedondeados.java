@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelCuadradosRedondeados extends JPanel {
-    private CuadradoRedondeado[][] matriz; // Matriz de CuadradosRedondeados
+    private Cuadrado[][] matriz; // Matriz de CuadradosRedondeados
     private Tablero tableroActual;
     private boolean[][] col;
 
@@ -16,11 +16,11 @@ public class PanelCuadradosRedondeados extends JPanel {
         // Configurar el panel con un GridLayout para organizar los CuadradosRedondeados
         setLayout(new GridLayout(filas, columnas));
         // Inicializar la matriz con el tamaÃÂ±o especificado
-        matriz = new CuadradoRedondeado[filas][columnas];
+        matriz = new Cuadrado[filas][columnas];
         // Crear y agregar los CuadradosRedondeados al panel
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                matriz[i][j] = new CuadradoRedondeado();
+                matriz[i][j] = new Cuadrado();
                 add(matriz[i][j]);
             }
         }
@@ -36,11 +36,11 @@ public class PanelCuadradosRedondeados extends JPanel {
         // Crear nueva matriz de CuadradosRedondeados
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                CuadradoRedondeado cuadrado = new CuadradoRedondeado();
-                matriz = new CuadradoRedondeado[filas][columnas];
+                Cuadrado cuadrado = new Cuadrado();
+                matriz = new Cuadrado[filas][columnas];
                 matriz[i][j] = cuadrado;
                 cuadrado.setName("" + i + "-" + j);
-                FunCuadrados(cuadrado, panel);
+                FunCuadrados(cuadrado, panel,jugLabel);
                 panel.add(cuadrado);
             }
         }
@@ -53,11 +53,11 @@ public class PanelCuadradosRedondeados extends JPanel {
         panel.repaint();
     }
 
-    public void FunCuadrados(CuadradoRedondeado cuadrado, JPanel panel) {
+    public void FunCuadrados(Cuadrado cuadrado, JPanel panel, JLabel label) {
         cuadrado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CuadradoRedondeado casilla = (CuadradoRedondeado) e.getSource();
+                Cuadrado casilla = (Cuadrado) e.getSource();
                 String Location = casilla.getName();
                 System.out.println(Location);
                 String[] partes = Location.split("-");
@@ -68,14 +68,14 @@ public class PanelCuadradosRedondeados extends JPanel {
                 tableroActual.jugar(fila2, colunma2);
                 System.out.println("" + tableroActual.darJugadas());
                 // casilla.cambiarColor();
-                actualizarColores(tableroActual.darTablero(), panel);
+                actualizarColores(tableroActual.darTablero(), panel, label);
                 casilla.cambiarColor();
 
             }
         });
     }
 
-    public void actualizarColores(boolean[][] tablero, JPanel panel) {
+    public void actualizarColores(boolean[][] tablero, JPanel panel,JLabel jugadas) {
         for (int i = 0; i < tablero.length; i++) {
 
             for (int j = 0; j < tablero[0].length; j++) {
@@ -93,5 +93,7 @@ public class PanelCuadradosRedondeados extends JPanel {
         }
         panel.revalidate();
         panel.repaint();
+        jugadas.revalidate();
+        jugadas.repaint();
     }
 }
